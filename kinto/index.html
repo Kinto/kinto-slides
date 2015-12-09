@@ -15,40 +15,34 @@
 
 # Kinto
 
-Une base de données pour le Web
+A database designed for the web.
 
-*Rémy Hubscher — Mozilla*
+*Service de nuages — Mozilla*
 </template>
 
 <template layout="title" type="text/x-markdown">
-# Qui construit des applications JavaScript ?
-
+# Who needs to fetch data from the web to update an application (i.e Firefox) data?
 </template>
 
 <template layout="title" type="text/x-markdown">
-# Qui construit des backends python pour des Web apps?
+# Who is writing web services backends for web apps?
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
           backface="./images/boring.jpg"
           backface-filter="brightness(1)">
 
------
-Ça ne vous fatigue pas de refaire les choses à chaque fois&nbsp;?
-
+How do you feel?
 </template>
 
 <template layout="bullets" type="text/x-markdown">
-## Une nouvelle application web ?
+## What does it means to build a new
 
---------------
-
-- Design d'API (URLs et protocole);
-- Implémenter le service *(ex. Django REST framework)*
-- Implémenter le client JS *(ex. service AngularJS)*
-- Outiller ses serveurs *(ex. Sentry, Statsd)*
-- Déployer
-
+- Design an API (URLs and protocol);
+- Implement the service (Readinglist, Loop, Sync servers)
+- Implement a client (Readinglist, Sync, Hello clients)
+- Monitoring and tooling *(i.e Sentry, Statsd, load tests)*
+- Deploy, QA, Improve, Scale, Re-deploy
 </template>
 
 <template layout="bullets" type="text/x-markdown">
@@ -56,58 +50,11 @@ Une base de données pour le Web
 </template>
 
 <template layout="bullets" type="text/x-markdown">
-## Synchronisation et Collaboration
+## Synchronisation and Collaboration
 
-- Offline ? Plusieurs appareils ?
-- Intégration de technologies hétérogènes *(CouchDB)*
-- Utilisation de silos propriétaires *(Parse, Firebase)*
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/goals.jpg"
-          backface-filter="brightness(.3)">
-## Objectifs
-
-- Dissocier l'application du backend
-- Ne plus déployer de backend ! *(Github pages)*
-- Laisser les utilisateurs choisir l'emplacement de leurs données.
-
-</template>
-
-<template layout="bullets" type="text/x-markdown"
-          backface="./images/horizon.jpg"
-          backface-filter="brightness(.9)">
-## Tour d'horizon des solutions existantes
-
-- Parse / Firebase, mais open source
-- Discussions avec Michiel de remote storage
-- Discussions avec Dale Harvey, Nolan Lawson de pouchdb, Jan Lennart de CouchDB
-- **Conclusion : pas de gestion fine des permissions.**
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-
-# «A lightweight JSON storage service with synchronisation and sharing abilities.»
-
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-## Un peu d'histoire
-
-- **Avril 2012** : Rencontres Djangocong à Carnon-plage.  L'idée d'un backend générique et réutilisable émerge.
-- *Alexis imagine une solution concurrente à Google Forms, Mathieu un moyen de faire des apps de carto sans déploiement.*
-- **2012-2014** : Les années Daybed. Quelques sprints avec Mathieu, Rémy et Alexis
-- **Été 2014** : Un jour par semaine alloué pour travailler sur Daybed à Mozilla
-
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-## Kinto
-
-- **Début 2015** : Reboot du projet suite au projet "readlinglist"
-- **Printemps** : création de Kinto.js
-- **Été 2015**  : utilisation de Kinto et de son écosystème dans divers projets à Mozilla  *(OneCRL, Syncto)*
-
+- Often Offline? wants the app to keep working while offline?
+- Sync data once you get back online (data may have changed on another device while offline)
+- What about using propritary silos (Firebase, Parse)
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
@@ -117,91 +64,90 @@ Une base de données pour le Web
 <template layout="bullets-invert" type="text/x-markdown"
           backface="./images/mozilla.jpg"
           backface-filter="brightness(.5)">
-## Capitaliser les efforts
+## Capitalise
 
-Nous sommes l'équipe «stockage» chez Mozilla
+We are the "storage" team!
 
-- Ne pas tout réinventer à chaque nouvelle demande
-- Respecter les bonnes pratiques HTTP
-- Faciliter le travail des ops
-- Reprendre les bonnes idées de Firefox Sync
+- We do not reinvent the wheel for each project.
+- Build-up on the Firefox Sync experience.
+- Help out OPS and QA not to rewrite everything for each service.
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
           backface="./images/community.jpg"
           backface-filter="brightness(.5)">
-## Créer un produit clé-en-main
+## Build a product driven by the use-case
 
-- Kinto est un produit
-- Simple et robuste *(pas de bleeding-edge technology)*
-- Facile à héberger
-- Intégration `kinto.js` triviale
-
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/ecosystem.jpg"
-          backface-filter="brightness(.4)">
-## Écosystème
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/mozilla.jpg"
-          backface-filter="brightness(.5)">
-
-## Intégrer des besoins variés
-
-- Instances dédiées et «Service to service» *(payments, software updates)*
-- Manipulation des données en Python via scripts *(security policies, ...)*
-- Client JavaScript *(ex. block lists, browser.html)*
-- Bridge Firefox Sync *(Firefox OS)*
-- Synchronisation application mobile *(Fennec)*
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/community.jpg"
-          backface-filter="brightness(.5)">
-
-## Enrichir un écosystème
-
-- Composants du serveur contrôlables depuis la configuration *(Authentication, persistance, cache, monitoring, etc.)*
-- Expérience développeur intégrée *des clients js, python, Java (Android) pour consommer l'API*
-- Extensions via plugins Pyramid *nos besoins internes ne sont pas nécessairement ceux des autres*
+- Kinto is a product
+- Simple
+- Easy to host
+- Provided with a Javascript and Python clients (Kinto.js, Kinto.py)
 
 </template>
 
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/privacy.jpg">
-</template>
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/ecosystem.jpg" -->
+<!--           backface-filter="brightness(.4)"> -->
+<!-- ## Écosystème -->
+<!-- </template> -->
 
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/mozilla.jpg"
-          backface-filter="brightness(.5)">
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/mozilla.jpg" -->
+<!--           backface-filter="brightness(.5)"> -->
 
-## Garantir l'intégrité et la sécurité
+<!-- ## Intégrer des besoins variés -->
 
-- Firefox Sync : données chiffrées par les clients
-- Payments : une application peut écrire, les clients peuvent lire leurs données
-</template>
+<!-- - Instances dédiées et «Service to service» *(payments, software updates)* -->
+<!-- - Manipulation des données en Python via scripts *(security policies, ...)* -->
+<!-- - Client JavaScript *(ex. block lists, browser.html)* -->
+<!-- - Bridge Firefox Sync *(Firefox OS)* -->
+<!-- - Synchronisation application mobile *(Fennec)* -->
+<!-- </template> -->
 
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/community.jpg"
-          backface-filter="brightness(.5)">
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/community.jpg" -->
+<!--           backface-filter="brightness(.5)"> -->
 
-## Reprendre le contrôle sur les données
+<!-- ## Enrichir un écosystème -->
 
-- Validation optionnelle du schéma des données
-- Chiffrement, jeu d'enfant ! *avec webcrypto et kinto.js*
-- Permissions → Instances mutualisées
-- Manipulation des objets et des permissions avec le client python
+<!-- - Composants du serveur contrôlables depuis la configuration *(Authentication, persistance, cache, monitoring, etc.)* -->
+<!-- - Expérience développeur intégrée *des clients js, python, Java (Android) pour consommer l'API* -->
+<!-- - Extensions via plugins Pyramid *nos besoins internes ne sont pas nécessairement ceux des autres* -->
 
-</template>
+<!-- </template> -->
 
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/future.jpg"
-          backface-filter="brightness(.9)">
-# Ça va ?
-</template>
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/privacy.jpg"> -->
+<!-- </template> -->
+
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/mozilla.jpg" -->
+<!--           backface-filter="brightness(.5)"> -->
+
+<!-- ## Garantir l'intégrité et la sécurité -->
+
+<!-- - Firefox Sync : données chiffrées par les clients -->
+<!-- - Payments : une application peut écrire, les clients peuvent lire leurs données -->
+<!-- </template> -->
+
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/community.jpg" -->
+<!--           backface-filter="brightness(.5)"> -->
+
+<!-- ## Reprendre le contrôle sur les données -->
+
+<!-- - Validation optionnelle du schéma des données -->
+<!-- - Chiffrement, jeu d'enfant ! *avec webcrypto et kinto.js* -->
+<!-- - Permissions → Instances mutualisées -->
+<!-- - Manipulation des objets et des permissions avec le client python -->
+
+<!-- </template> -->
+
+<!-- <template layout="bullets-invert" type="text/x-markdown" -->
+<!--           backface="./images/future.jpg" -->
+<!--           backface-filter="brightness(.9)"> -->
+<!-- # Ça va ? -->
+<!-- </template> -->
 
 <template layout="bullets" type="text/x-markdown">
 ![](./images/concepts-general.png)
@@ -218,149 +164,103 @@ Nous sommes l'équipe «stockage» chez Mozilla
 
 <template layout="code" type="text/x-markdown">
 
-```http
-POST
-/v1/buckets/blog
-  /collections/articles
-    /records
-```
-```javascript
-{"data": {"title": "Présentation de Kinto"}}
-
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+ <channel>
+  <title>Blog Title</title>
+  <description>This is a blog description</description>
+  <link>http://www.example.com/main.html</link>
+  <lastBuildDate>Mon, 06 Sep 2010 00:01:00 +0000 </lastBuildDate>
+  <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
+  <ttl>1800</ttl>
+  
+  <item>
+   <title>Example entry</title>
+   <description>Here is some text containing an interesting description.</description>
+   <link>http://www.example.com/blog/post/1</link>
+   <guid isPermaLink="true">7bd204c6-1655-4c27-aeee-53f933c5395f</guid>
+   <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
+  </item>
+ 
+ </channel>
+</rss>
 ```
 </template>
 
 
 <template layout="code" type="text/x-markdown">
-
-HTTP/1.1 201 CREATED
+GET
+/v1/buckets/blog
+  /collections/articles
 
 ```javascript
 {
   "data": {
-      "title": "Présentation de Kinto",
-      "id": "89881454-e4e9-4ef0-99a9-404d95900352",
-      "last_modified": 1434647782623
+      "id": "articles",
+      "last_modified": 1251800520143,
+      "title": "Blog title",
+      "description": "This is a blog description",
+      "link": "http://www.example.com/main.html"
   },
   "permissions": { "write": ["userid:VonkkVZo"] }
 }
 ```
 </template>
 
-<template layout="bullets" type="text/x-markdown">
-![](./images/concepts-permissions.png)
-</template>
-
 <template layout="code" type="text/x-markdown">
+GET
+/v1/buckets/blog
+  /collections/articles
+    /records
 
 ```javascript
 {
-    "code": 400,
-    "details": [{
-        "description": "'title' is a required property",
-        "location": "body",
-        "name": "title"
-     }],
-    "errno": 107,
-    "error": "Invalid parameters",
-    "message": "'title' is a required property"
+  "data": [
+    {
+      "id": "7bd204c6-1655-4c27-aeee-53f933c5395f",
+      "last_modified": 1252254000464,
+      "title": "Example entry",
+      "description": "Here is some text containing an interesting description.",
+      "link": "http://www.example.com/blog/post/1"
+    }
+  ]
 }
 ```
-
 </template>
 
 <template layout="code" type="text/x-markdown">
-# Batch endpoint
+GET
+/v1/buckets/blog
+  /collections/articles
+    /records
 
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/offline.jpg"
-          backface-filter="brightness(.6)">
-## Offline first
-</template>
-
-<template layout="code" type="text/x-markdown">
-## Exemple avec Kinto.js
-
-```js
-const tasks = new Kinto({
-  remote: "https://kinto.dev.mozaws.net/v1"
-}).collection("tasks");
-
-tasks.create({label: "First item", done: false})
-     .then(function() { tasks.sync() });
+```http
+HTTP/1.1 200 OK
+Content-Length: 195
+Content-Type: application/json; charset=UTF-8
+Date: Wed, 09 Dec 2015 12:31:16 GMT
+ETag: "1449664217446"
+Last-Modified: Wed, 09 Dec 2015 12:30:17 GMT
+Total-Records: 1
 ```
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/autohebergement.jpg"
-          backface-filter="brightness(.4)">
-
-# Hébergement communautaire
-
-- ``docker run -p 8888:8888 kinto/kinto-server``
-- ou ``git clone; make serve``
-- cf. documentation pour la mise en production
-- `#help` Packaging AlwaysData, Debian, Heroku, Bitnami
 
 </template>
 
-<template layout="bullets" type="text/x-markdown">
+<template layout="code" type="text/x-markdown">
+# Fetching what changed only if it changed
 
-## À vous !
+GET
+/v1/buckets/blog
+  /collections/articles
+    /records?_since=1449664217446
+If-None-Match: "1449664217446"
 
-- Instance de dev: https://kinto.dev.mozaws.net/
-- [Kinto.js React Boilerplate](https://github.com/Kinto/kinto-react-boilerplate/)
-- https://kinto.readthedocs.org
-
-----------
-
-- Recherche cobayes :)
-
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/conversation.jpg"
-          backface-filter="brightness(.5)">
-
-## Faire des ponts
-
-- Parse, Firebase: logiciels privatifs centralisés
-- PouchDB: pas de permissions fines, serveur mutualisé délicat
-- OwnCloud, RemoteStorage: orientés fichiers
-- Cozy: Pas de multi utilisateurs
-- Volonté de faire des ponts
-
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-
-## Les limitations de Kinto
-
-- Pas de modèle relationnel
-- Historique mais pas de versioning des enregistrements
-
-</template>
-
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/roadmap.jpg"
-          backface-filter="brightness(.9)">
-## Feuille de route
-
-- Ouverture et transparence
-- Blog-post driven development !
-- http://www.servicedenuages.fr
-
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-## Prévu
-
-- Notifications *(Push, live sync)*
-- Support des fichiers
-- Découverte d'instances
-- Interface d'admin *(à-la Django Adminsite)*
+```http
+HTTP/1.1 304 Not Modified
+Date: Wed, 09 Dec 2015 12:37:22 GMT
+ETag: "1449664217446"
+```
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
