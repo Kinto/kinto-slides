@@ -1,0 +1,417 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kinto - Une base de données pour le web</title>
+  <link rel="stylesheet" href="./dist/talkie.min.css">
+  <link rel="stylesheet" href="./dist/talkie-default.min.css">
+  <link rel="stylesheet" href="./dist/monokai_sublime.min.css">
+  <link rel="stylesheet" href="./dist/mozilla.css">
+</head>
+<body>
+
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+# Kinto
+
+Une base de données pour le Web
+
+*Rémy Hubscher — Mozilla*
+</template>
+
+<template layout="title" type="text/x-markdown">
+# Qui construit des applications JavaScript ?
+
+</template>
+
+<template layout="title" type="text/x-markdown">
+# Qui construit des backends python pour des Web apps?
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/boring.jpg"
+          backface-filter="brightness(1)">
+
+-----
+Ça ne vous fatigue pas de refaire les choses à chaque fois&nbsp;?
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Une nouvelle application web ?
+
+--------------
+
+- Design d'API (URLs et protocole);
+- Implémenter le service *(ex. Django REST framework)*
+- Implémenter le client JS *(ex. service AngularJS)*
+- Outiller ses serveurs *(ex. Sentry, Statsd)*
+- Déployer
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+![](./images/overview-deployonce-selfhost.png)
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Synchronisation et Collaboration
+
+- Offline ? Plusieurs appareils ?
+- Intégration de technologies hétérogènes *(CouchDB)*
+- Utilisation de silos propriétaires *(Parse, Firebase)*
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/goals.jpg"
+          backface-filter="brightness(.3)">
+## Objectifs
+
+- Dissocier l'application du backend
+- Ne plus déployer de backend ! *(Github pages)*
+- Laisser les utilisateurs choisir l'emplacement de leurs données.
+
+</template>
+
+<template layout="bullets" type="text/x-markdown"
+          backface="./images/horizon.jpg"
+          backface-filter="brightness(.9)">
+## Tour d'horizon des solutions existantes
+
+- Parse / Firebase, mais open source
+- Discussions avec Michiel de remote storage
+- Discussions avec Dale Harvey, Nolan Lawson de pouchdb, Jan Lennart de CouchDB
+- **Conclusion : pas de gestion fine des permissions.**
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+
+# «A lightweight JSON storage service with synchronisation and sharing abilities.»
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Un peu d'histoire
+
+- **Avril 2012** : Rencontres Djangocong à Carnon-plage.  L'idée d'un backend générique et réutilisable émerge.
+- *Alexis imagine une solution concurrente à Google Forms, Mathieu un moyen de faire des apps de carto sans déploiement.*
+- **2012-2014** : Les années Daybed. Quelques sprints avec Mathieu, Rémy et Alexis
+- **Été 2014** : Un jour par semaine alloué pour travailler sur Daybed à Mozilla
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Kinto
+
+- **Début 2015** : Reboot du projet suite au projet "readlinglist"
+- **Printemps** : création de Kinto.js
+- **Été 2015**  : utilisation de Kinto et de son écosystème dans divers projets à Mozilla  *(OneCRL, Syncto)*
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/product.jpg">
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/mozilla.jpg"
+          backface-filter="brightness(.5)">
+## Capitaliser les efforts
+
+Nous sommes l'équipe «stockage» chez Mozilla
+
+- Ne pas tout réinventer à chaque nouvelle demande
+- Respecter les bonnes pratiques HTTP
+- Faciliter le travail des ops
+- Reprendre les bonnes idées de Firefox Sync
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/community.jpg"
+          backface-filter="brightness(.5)">
+## Créer un produit clé-en-main
+
+- Kinto est un produit
+- Simple et robuste *(pas de bleeding-edge technology)*
+- Facile à héberger
+- Intégration `kinto.js` triviale
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/ecosystem.jpg"
+          backface-filter="brightness(.4)">
+## Écosystème
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/mozilla.jpg"
+          backface-filter="brightness(.5)">
+
+## Intégrer des besoins variés
+
+- Instances dédiées et «Service to service» *(payments, software updates)*
+- Manipulation des données en Python via scripts *(security policies, ...)*
+- Client JavaScript *(ex. block lists, browser.html)*
+- Bridge Firefox Sync *(Firefox OS)*
+- Synchronisation application mobile *(Fennec)*
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/community.jpg"
+          backface-filter="brightness(.5)">
+
+## Enrichir un écosystème
+
+- Composants du serveur contrôlables depuis la configuration *(Authentication, persistance, cache, monitoring, etc.)*
+- Expérience développeur intégrée *des clients js, python, Java (Android) pour consommer l'API*
+- Extensions via plugins Pyramid *nos besoins internes ne sont pas nécessairement ceux des autres*
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/privacy.jpg">
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/mozilla.jpg"
+          backface-filter="brightness(.5)">
+
+## Garantir l'intégrité et la sécurité
+
+- Firefox Sync : données chiffrées par les clients
+- Payments : une application peut écrire, les clients peuvent lire leurs données
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/community.jpg"
+          backface-filter="brightness(.5)">
+
+## Reprendre le contrôle sur les données
+
+- Validation optionnelle du schéma des données
+- Chiffrement, jeu d'enfant ! *avec webcrypto et kinto.js*
+- Permissions → Instances mutualisées
+- Manipulation des objets et des permissions avec le client python
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/future.jpg"
+          backface-filter="brightness(.9)">
+# Ça va ?
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+![](./images/concepts-general.png)
+</template>
+
+<template layout="code" type="text/x-markdown">
+
+```perl
+/buckets/{bucket_id}
+  /collections/{collection_id}
+    /records/{record_id}
+```
+</template>
+
+<template layout="code" type="text/x-markdown">
+
+```http
+POST
+/v1/buckets/blog
+  /collections/articles
+    /records
+```
+```javascript
+{"data": {"title": "Présentation de Kinto"}}
+
+```
+</template>
+
+
+<template layout="code" type="text/x-markdown">
+
+HTTP/1.1 201 CREATED
+
+```javascript
+{
+  "data": {
+      "title": "Présentation de Kinto",
+      "id": "89881454-e4e9-4ef0-99a9-404d95900352",
+      "last_modified": 1434647782623
+  },
+  "permissions": { "write": ["userid:VonkkVZo"] }
+}
+```
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+![](./images/concepts-permissions.png)
+</template>
+
+<template layout="code" type="text/x-markdown">
+
+```javascript
+{
+    "code": 400,
+    "details": [{
+        "description": "'title' is a required property",
+        "location": "body",
+        "name": "title"
+     }],
+    "errno": 107,
+    "error": "Invalid parameters",
+    "message": "'title' is a required property"
+}
+```
+
+</template>
+
+<template layout="code" type="text/x-markdown">
+# Batch endpoint
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/offline.jpg"
+          backface-filter="brightness(.6)">
+## Offline first
+</template>
+
+<template layout="code" type="text/x-markdown">
+## Exemple avec Kinto.js
+
+```js
+const tasks = new Kinto({
+  remote: "https://kinto.dev.mozaws.net/v1"
+}).collection("tasks");
+
+tasks.create({label: "First item", done: false})
+     .then(function() { tasks.sync() });
+```
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/autohebergement.jpg"
+          backface-filter="brightness(.4)">
+
+# Hébergement communautaire
+
+- ``docker run -p 8888:8888 kinto/kinto-server``
+- ou ``git clone; make serve``
+- cf. documentation pour la mise en production
+- `#help` Packaging AlwaysData, Debian, Heroku, Bitnami
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+
+## À vous !
+
+- Instance de dev: https://kinto.dev.mozaws.net/
+- [Kinto.js React Boilerplate](https://github.com/Kinto/kinto-react-boilerplate/)
+- https://kinto.readthedocs.org
+
+----------
+
+- Recherche cobayes :)
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/conversation.jpg"
+          backface-filter="brightness(.5)">
+
+## Faire des ponts
+
+- Parse, Firebase: logiciels privatifs centralisés
+- PouchDB: pas de permissions fines, serveur mutualisé délicat
+- OwnCloud, RemoteStorage: orientés fichiers
+- Cozy: Pas de multi utilisateurs
+- Volonté de faire des ponts
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+
+## Les limitations de Kinto
+
+- Pas de modèle relationnel
+- Historique mais pas de versioning des enregistrements
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/roadmap.jpg"
+          backface-filter="brightness(.9)">
+## Feuille de route
+
+- Ouverture et transparence
+- Blog-post driven development !
+- http://www.servicedenuages.fr
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Prévu
+
+- Notifications *(Push, live sync)*
+- Support des fichiers
+- Découverte d'instances
+- Interface d'admin *(à-la Django Adminsite)*
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/merci.jpg"
+          backface-filter="brightness(.9)">
+## Merci
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Crédits
+
+- [Hersson Piratoba, "¡Nube Voladora!"](https://www.flickr.com/photos/nossreh/16753088479)
+- [Gonzalo Merat, "Really Bored Kenzo"](https://www.flickr.com/photos/gonzalomerat/4852691103)
+- [Kitty Terwolbeck, "Half way looking at the road map"](https://www.flickr.com/photos/kittysfotos/6362818709)
+- [Charles Dawley, "Polaris - Star Trails Iridium flare"](https://www.flickr.com/photos/odalaigh/1482685365)
+- [Geraint Rowland, "Towards The Future (Oslo) Explored"](https://www.flickr.com/photos/geezaweezer/5897955778)
+- [KylaBorg, "Privacy"](https://www.flickr.com/photos/kylaborg/12887906353)
+- [Angie Torres, "Goal setting"](https://www.flickr.com/photos/angietorres/4564135455)
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Crédits ²
+
+- [Benjamin Disinger, "Horizon"](https://www.flickr.com/photos/bendisinger/15383035222)
+- [Uditha Wickramanayaka, "Love"](https://www.flickr.com/photos/126915310@N08/16332829367)
+- [Jeremy Brooks, "Products"](https://www.flickr.com/photos/jeremybrooks/5401494223)
+- [Nick Bramhall, "Light Pollution"](https://www.flickr.com/photos/black_friction/5628330687)
+- [Skånska Matupplevelser, "House, Autumn"](https://www.flickr.com/photos/matupplevelser/4644386646)
+- [Christoph Rupprecht, "Leaf Structure X1"](https://www.flickr.com/photos/focx/5485671820)
+- [Valery Kenski, "Conversation"](https://www.flickr.com/photos/95222905@N02/10997835056)
+</template>
+
+<script src="./dist/highlight.min.js"></script>
+<script src="./dist/talkie.js"></script>
+<script>
+var talkie = Talkie({wide: false});
+
+talkie.next.plug(talkie.control.keydown('s'));
+talkie.next.plug(talkie.control.keydown('n'));
+talkie.prev.plug(talkie.control.keydown('a'));
+talkie.prev.plug(talkie.control.keydown('p'));
+
+document.addEventListener('DOMContentLoaded', function() {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('[layout]'));
+  talkie.changed.onValue(function(current) {
+    console.clear();
+    // print presenter notes
+    console.info(talkie.notes[current.getAttribute('page')]);
+  });
+});
+</script>
+</body>
+</html>
