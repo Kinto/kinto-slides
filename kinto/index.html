@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Kinto - A database designed for the web</title>
+  <title>Kinto - A database for the Web</title>
   <link rel="stylesheet" href="./dist/talkie.min.css">
   <link rel="stylesheet" href="./dist/talkie-default.min.css">
   <link rel="stylesheet" href="./dist/monokai_sublime.min.css">
@@ -15,139 +15,167 @@
 
 # Kinto
 
-A database designed for the web.
+</template>
 
-*Service de nuages — Mozilla*
+<template layout="bullets" type="text/x-markdown">
+
+# «A lightweight JSON storage service with synchronisation and sharing abilities.»
+
+</template>
+
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+# It's a FOXING DATABASE!
+
+</template>
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+# For the Web.
+
+</template>
+
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+# That syncs.
+
+</template>
+
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+# With permissions.
+
 </template>
 
 <template layout="title" type="text/x-markdown">
-# Who needs to fetch data from the web to update an application (i.e Firefox) data?
+# We all build JavaScript applications.
+
 </template>
 
 <template layout="title" type="text/x-markdown">
-# Who is writing web services backends for web apps?
+# Sometimes, these applications need to store data.
 </template>
+
+<template layout="bullets" type="text/x-markdown">
+## A new idea?
+
+- Design the API (URL and protocol)
+- Implement the server parts
+- Deploy, scale, etc.
+- Consume the API on the client.
+
+</template>
+
 
 <template layout="bullets-invert" type="text/x-markdown"
           backface="./images/boring.jpg"
           backface-filter="brightness(1)">
+------
 
-How do you feel?
-</template>
+Aren't you tired of doing the same things over and over again?
 
-<template layout="bullets" type="text/x-markdown">
-## What does it means to build a new
-
-- Design an API (URLs and protocol);
-- Implement the service (Readinglist, Loop, Sync servers)
-- Implement a client (Readinglist, Sync, Hello clients)
-- Monitoring and tooling *(i.e Sentry, Statsd, load tests)*
-- Deploy, QA, Improve, Scale, Re-deploy
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-![](./images/overview-deployonce-selfhost.png)
-</template>
-
-<template layout="bullets" type="text/x-markdown">
-## Synchronisation and Collaboration
-
-- Often Offline? wants the app to keep working while offline?
-- Sync data once you get back online (data may have changed on another device while offline)
-- What about using propritary silos (Firebase, Parse)
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/product.jpg">
+          backface="./images/future.jpg"
+          backface-filter="brightness(.9)">
+
+## With Kinto
+
+1. Deploy an instance (ops are happy to do it, they know it!)
+2. Integrate with one of the existing clients (Kinto.js, Kinto.py)
+3. ???
+4. Profit !
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/mozilla.jpg"
+          backface-filter="brightness(.2)">
+## Use cases
+
+- Addons blocklists (Graphic cards drivers, Addons, etc.)
+- OneCRL — SSL Certificate Revocation Lists
+- Fennec OTA (Hyphenation and fonts)
+- Whatever you want to sync in Firefox!
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/offline.jpg"
+          backface-filter="brightness(.6)">
+## Offline first
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/goals.jpg"
+          backface-filter="brightness(.2)">
+## Features
+
+- Synchronisation
+- Permissions
+- Push notifications
+- Ops friendly
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/goals.jpg"
+          backface-filter="brightness(.2)">
+## Ecosystem
+
+- Kinto.js (landed in firefox!), kinto.py
+- Encrypt if you need (WebCrypto)
+- Data signing (*)
+- File storage (*)
+
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
           backface="./images/mozilla.jpg"
           backface-filter="brightness(.5)">
-## Capitalise
+## Capitalize
 
-We are the "storage" team!
+-----
 
-- We do not reinvent the wheel for each project.
-- Build-up on the Firefox Sync experience.
-- Help out OPS and QA not to rewrite everything for each service.
+- Do not reinvent everything each time
+- Respect HTTP best practices
+- Ease the job for Ops
+- Keep the good ideas of Firefox Sync.
+</template>
+
+
+<template layout="bullets" type="text/x-markdown"
+          backface="./images/horizon.jpg"
+          backface-filter="brightness(.9)">
+## Other solutions
+
+- Parse / Firebase, but open source
+- Remote Storage
+- CouchDB / PouchDB
+- Sync
 </template>
 
 <template layout="bullets-invert" type="text/x-markdown"
           backface="./images/community.jpg"
           backface-filter="brightness(.5)">
-## Build a product driven by the use-case
 
-- Kinto is a product
-- Simple
-- Easy to host
-- Provided with a Javascript and Python clients (Kinto.js, Kinto.py)
+## Put back the user in control.
+
+-----
+
+- Optional validation of the data schema
+- Encryption made easy (webcrypto + kinto.js)
+- Permissions → mutualise the deployment
 
 </template>
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/ecosystem.jpg" -->
-<!--           backface-filter="brightness(.4)"> -->
-<!-- ## Écosystème -->
-<!-- </template> -->
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/mozilla.jpg" -->
-<!--           backface-filter="brightness(.5)"> -->
-
-<!-- ## Intégrer des besoins variés -->
-
-<!-- - Instances dédiées et «Service to service» *(payments, software updates)* -->
-<!-- - Manipulation des données en Python via scripts *(security policies, ...)* -->
-<!-- - Client JavaScript *(ex. block lists, browser.html)* -->
-<!-- - Bridge Firefox Sync *(Firefox OS)* -->
-<!-- - Synchronisation application mobile *(Fennec)* -->
-<!-- </template> -->
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/community.jpg" -->
-<!--           backface-filter="brightness(.5)"> -->
-
-<!-- ## Enrichir un écosystème -->
-
-<!-- - Composants du serveur contrôlables depuis la configuration *(Authentication, persistance, cache, monitoring, etc.)* -->
-<!-- - Expérience développeur intégrée *des clients js, python, Java (Android) pour consommer l'API* -->
-<!-- - Extensions via plugins Pyramid *nos besoins internes ne sont pas nécessairement ceux des autres* -->
-
-<!-- </template> -->
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/privacy.jpg"> -->
-<!-- </template> -->
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/mozilla.jpg" -->
-<!--           backface-filter="brightness(.5)"> -->
-
-<!-- ## Garantir l'intégrité et la sécurité -->
-
-<!-- - Firefox Sync : données chiffrées par les clients -->
-<!-- - Payments : une application peut écrire, les clients peuvent lire leurs données -->
-<!-- </template> -->
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/community.jpg" -->
-<!--           backface-filter="brightness(.5)"> -->
-
-<!-- ## Reprendre le contrôle sur les données -->
-
-<!-- - Validation optionnelle du schéma des données -->
-<!-- - Chiffrement, jeu d'enfant ! *avec webcrypto et kinto.js* -->
-<!-- - Permissions → Instances mutualisées -->
-<!-- - Manipulation des objets et des permissions avec le client python -->
-
-<!-- </template> -->
-
-<!-- <template layout="bullets-invert" type="text/x-markdown" -->
-<!--           backface="./images/future.jpg" -->
-<!--           backface-filter="brightness(.9)"> -->
-<!-- # Ça va ? -->
-<!-- </template> -->
 
 <template layout="bullets" type="text/x-markdown">
 ![](./images/concepts-general.png)
@@ -163,36 +191,7 @@ We are the "storage" team!
 </template>
 
 <template layout="code" type="text/x-markdown">
-
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
- <channel>
-  <title>Blog Title</title>
-  <description>This is a blog description</description>
-  <link>http://www.example.com/main.html</link>
-  <lastBuildDate>Mon, 06 Sep 2010 00:01:00 +0000 </lastBuildDate>
-  <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
-  <ttl>1800</ttl>
-  
-  <item>
-   <title>Example entry</title>
-   <description>Here is some text containing an interesting description.</description>
-   <link>http://www.example.com/blog/post/1</link>
-   <guid isPermaLink="true">7bd204c6-1655-4c27-aeee-53f933c5395f</guid>
-   <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
-  </item>
- 
- </channel>
-</rss>
-```
-</template>
-
-
-<template layout="code" type="text/x-markdown">
-GET
-/v1/buckets/blog
-  /collections/articles
+GET /v1/buckets/blog/collections/articles
 
 ```javascript
 {
@@ -208,11 +207,13 @@ GET
 ```
 </template>
 
+<template layout="bullets" type="text/x-markdown">
+![](./images/concepts-permissions.png)
+</template>
+
+
 <template layout="code" type="text/x-markdown">
-GET
-/v1/buckets/blog
-  /collections/articles
-    /records
+GET /v1/buckets/blog/collections/articles/records
 
 ```javascript
 {
@@ -221,7 +222,7 @@ GET
       "id": "7bd204c6-1655-4c27-aeee-53f933c5395f",
       "last_modified": 1252254000464,
       "title": "Example entry",
-      "description": "Here is some text containing an interesting description.",
+      "description": "Here is some text.",
       "link": "http://www.example.com/blog/post/1"
     }
   ]
@@ -230,10 +231,7 @@ GET
 </template>
 
 <template layout="code" type="text/x-markdown">
-GET
-/v1/buckets/blog
-  /collections/articles
-    /records
+GET /v1/buckets/blog/collections/articles/records
 
 ```http
 HTTP/1.1 200 OK
@@ -248,26 +246,70 @@ Total-Records: 1
 </template>
 
 <template layout="code" type="text/x-markdown">
-# Fetching what changed only if it changed
+## Fetching what changed
 
-GET
-/v1/buckets/blog
-  /collections/articles
+```perl
+GET /v1/buckets/blog/collections/articles
+    /records?_since=1449664217446
+
+HTTP/1.1 200 OK
+ETag: "1449664217446"
+Total-Records: 0
+
+{"data": []}
+```
+</template>
+
+<template layout="code" type="text/x-markdown">
+## Only if it changed
+
+```perl
+GET /v1/buckets/blog/collections/articles
     /records?_since=1449664217446
 If-None-Match: "1449664217446"
 
-```http
 HTTP/1.1 304 Not Modified
 Date: Wed, 09 Dec 2015 12:37:22 GMT
 ETag: "1449664217446"
 ```
 </template>
 
-<template layout="bullets-invert" type="text/x-markdown"
-          backface="./images/merci.jpg"
-          backface-filter="brightness(.9)">
-## Merci
+<template layout="code" type="text/x-markdown">
+## Update only if it didn't change
+
+```perl
+PATCH /v1/buckets/blog/collections/articles
+    /records/7bd204c6-1655-4c27-aeee-53f933c5395f
+If-Match: "1449664217446"
+
+HTTP/1.1 412 Precondition Failed
+ETag: "1449664217450"
+```
 </template>
+
+<template layout="code" type="text/x-markdown">
+```js
+{
+    "code": 412,
+    "details": {
+        "existing": {
+            "id": "7bd204...95f",
+            "last_modified": 1449664217450,
+            "title": "Hello world!"
+        }
+    },
+    "errno": 114,
+    "error": "Precondition Failed",
+    "message": "Resource was modified meanwhile"
+}
+```
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+
+Demo time!
+</template>
+
 
 <template layout="bullets" type="text/x-markdown">
 ## Crédits
