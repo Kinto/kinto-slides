@@ -1,0 +1,17 @@
+@font-face {
+  font-family: FiraSans;
+  src: url("./FiraSans-Regular.otf") format("opentype");
+}
+
+[layout] h1, [layout] h2, [layout] h3, [layout] h4, [layout] h5 {
+  font-family: "FiraSans";
+}
+
+#control {
+    color: #000;
+}
+
+[layout] em {
+    font-size: 0.9em;
+    font-style: italic;
+}

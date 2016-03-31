@@ -1,0 +1,155 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kinto - A database for the Web</title>
+  <link rel="stylesheet" href="./dist/talkie.min.css">
+  <link rel="stylesheet" href="./dist/talkie-default.min.css">
+  <link rel="stylesheet" href="./dist/monokai_sublime.min.css">
+  <link rel="stylesheet" href="./dist/mozilla.css">
+</head>
+<body>
+
+<template layout="bullets" type="text/x-markdown">
+![](./images/logo.png)
+
+Rémy Hubscher — @Natim
+</template>
+
+
+<template layout="bullets" type="text/x-markdown">
+
+## Why do we love Django?
+
+- Python and Django Community
+- Models
+- Forms
+- Admin
+- Security
+- ...
+
+</template>
+
+
+<template layout="bullets" type="text/x-markdown">
+
+## Javascript web-apps needs
+
+- Storage
+- Synchronization
+- Push notifications
+- Data validation
+- Data access management
+- API
+
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## What happens when you've got an idea?
+
+- Design the API (URL and protocol)
+- Implement the server parts
+- Deploy, scale, etc.
+- Consume the API on the client.
+
+</template>
+
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/boring.jpg"
+          backface-filter="brightness(1)">
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+Should we start?
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/future.jpg"
+          backface-filter="brightness(.9)">
+
+## Let's dream for a minute
+
+1. Deploy an instance → [Clic here to deploy](http://kinto.readthedocs.org/en/latest/get-started.html#deploying-on-cloud-providers)
+2. Use an existing client to configure and consume the API
+3. … Check that it works as expected …
+4. Profit!
+
+</template>
+
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+# Kinto
+A lightweight JSON storage service.
+
+</template>
+
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/goals.jpg"
+          backface-filter="brightness(.2)">
+## Features
+
+- Synchronisation <small>(offline first)</small>
+- Permissions
+- Push notifications
+- Ops friendly
+- Encryption
+- ReactJS Admin
+
+</template>
+
+<template layout="bullets-invert" type="text/x-markdown"
+          backface="./images/goals.jpg"
+          backface-filter="brightness(.2)">
+## Next?
+
+- Plug this protocol with Django as an app
+- Use Django Users to authenticate
+- Use Django forms to validate data
+- Benefit from Django database settings to ease deployment
+
+</template>
+
+<template layout="cover" invert type="text/x-markdown"
+          backface="./images/intro.jpg"
+          backface-filter="brightness(.9)">
+
+Please come and ask me questions
+
+[https://kinto.readthedocs.org/](https://kinto.readthedocs.org/)
+</template>
+
+<template layout="bullets" type="text/x-markdown">
+## Crédits
+
+- [Hersson Piratoba, "¡Nube Voladora!"](https://www.flickr.com/photos/nossreh/16753088479)
+- [Gonzalo Merat, "Really Bored Kenzo"](https://www.flickr.com/photos/gonzalomerat/4852691103)
+- [Charles Dawley, "Polaris - Star Trails Iridium flare"](https://www.flickr.com/photos/odalaigh/1482685365)
+- [Angie Torres, "Goal setting"](https://www.flickr.com/photos/angietorres/4564135455)
+
+</template>
+
+<script src="./dist/highlight.min.js"></script>
+<script src="./dist/talkie.js"></script>
+<script>
+var talkie = Talkie({wide: false});
+
+talkie.next.plug(talkie.control.keydown('s'));
+talkie.next.plug(talkie.control.keydown('n'));
+talkie.prev.plug(talkie.control.keydown('a'));
+talkie.prev.plug(talkie.control.keydown('p'));
+
+document.addEventListener('DOMContentLoaded', function() {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('[layout]'));
+  talkie.changed.onValue(function(current) {
+    console.clear();
+    // print presenter notes
+    console.info(talkie.notes[current.getAttribute('page')]);
+  });
+});
+</script>
+</body>
+</html>
