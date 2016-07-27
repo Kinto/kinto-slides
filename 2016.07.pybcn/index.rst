@@ -218,6 +218,8 @@ Or via the settings:
 
     pyramid.includes = webmaps_addon
 
+Can be used to modularize any application part like views or event subscribers.
+
 ----
 
 An addon is just a single Python module with ``def includeme(config)``:
@@ -315,6 +317,7 @@ Events / Subscribers
     class ServerFlushed(object):
         def __init__(self, request):
             self.request = request
+
 
     def view_flush_post(request):
         request.registry.storage.flush()
