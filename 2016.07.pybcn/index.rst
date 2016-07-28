@@ -29,10 +29,10 @@ Why ?
 Storage API
 ===========
 
-* Minimalist & simple API
 * Universal « Web database »
 * Synchronize between devices
 * Shareable remote storage
+* Minimalist & simple
 
 ----
 
@@ -64,24 +64,6 @@ Synchronization
 
 ----
 
-Idea → Production ?
-===================
-
-.. image:: images/appdev-before.png
-
-----
-
-Relax app developers!
-
-* Speed-up prototyping
-* Bypass backend devs/ops
-
-.. image:: images/appdev-after.png
-
-Featured on Hackernews as *«Self-hostable alternative to Parse and Firebase»*
-
-----
-
 Universal means reusable!
 =========================
 
@@ -92,6 +74,26 @@ Universal means reusable!
 * Secure once
 * Deploy once
 * Scale once
+
+----
+
+New idea → Production ?
+=======================
+
+.. image:: images/appdev-before.png
+
+----
+
+With Kinto:
+
+.. image:: images/appdev-after.png
+
+* Relax app developers!
+* Speed-up prototyping
+* Bypass backend devs/ops
+
+
+Featured on Hackernews as *«Self-hostable alternative to Parse and Firebase»*
 
 ----
 
@@ -220,14 +222,13 @@ kinto-admin Web UI
 At Mozilla
 ==========
 
+* https://firefox.settings.services.mozilla.com/
 * Certificates Revocation List *(Firefox Nightly)*
 * Android extra assets files |br| *(fonts, hyphenation dictionaries, ...)*
 * A/B testing *(experiments)*
 * ...
 
-Coming soon:
-
-* Web Extensions ``storage.sync()`` API
+Coming soon: Web Extensions ``storage.sync()`` API
 
 ----
 
@@ -246,7 +247,7 @@ http://fourmilieres.net → Forms service!
 .. image:: images/app-examples-3.png
 
 
-Idea by Xavier Orduña ~ PyBCN Nov 2015
+Telegram Wall idea by Xavier Orduña |br| *PyBCN Meetup Nov 2015*
 
 ----
 
