@@ -1,0 +1,56 @@
+@font-face {
+    font-family: FiraSans;
+    src: url("FiraSans-Regular.otf") format("opentype");
+}
+
+body {
+    font-family: FiraSans;
+}
+
+pre .err {
+    border: none;
+}
+
+ul > li > em:last-child, p > em:last-child  {
+    opacity: 0.6;
+}
+
+ul > li {
+    list-style-type: inherit;
+    list-style-type: '- ';
+}
+
+h1 > em {
+    font-style: normal;
+    opacity: 0.5;
+}
+
+a, a:visited {
+    color: white;
+}
+
+pre {
+    background-color: #222;
+    font-size: 0.6em;
+}
+
+.slide section p > tt {
+    font-size: 0.8em;
+}
+
+ul.simple {
+    margin-top: 0px;
+}
+
+.slide section img.align-right {
+    float: right;
+}
+
+/*
+
+.slide section p {
+    font-size: 25px;
+}
+
+
+*/

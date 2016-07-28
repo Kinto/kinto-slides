@@ -1,0 +1,3 @@
+[submodule "2016.07.pybcn/avalanche"]
+	path = 2016.07.pybcn/avalanche
+	url = https://github.com/akrabat/avalanche.git

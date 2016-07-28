@@ -2,10 +2,9 @@
 
    <br />
 
-Kinto
-#####
+.. image:: images/kinto-logo.svg
 
-Kinto is a minimalist JSON storage service (store, sync, share)
+**Kinto** is a minimalist JSON storage service |br| *(store, sync, share)*
 
 * Python Meetup Barcelona
 * July 2016
@@ -25,19 +24,68 @@ Highlights
 Why ?
 =====
 
-* universal
-* reusable
-* Featured twice on Hackernews as «*Open Source alternative to Parse and Firebase*»
-
-* data ownership
+* Universal « Web database »
+* Synchronize between devices
+* Shareable remote storage
 
 ----
 
-3 steps to building a new Web app
+Your data, your choice
+======================
+
+.. image:: images/island-unhosted.png
+    :align: right
+
+Data belong to the users |br| *(not app developers)*
+
+* Decouple application from storage location *(https://unhosted.org)*
+* Self-hosting / Mutualisation
+* Location of **your choice**
+* Client side encryption
 
 ----
 
-At Mozilla
+Synchronization
+===============
+
+.. image:: images/kinto-cloud.png
+    :align: right
+
+* Live access and sharing
+* Collaborative apps
+* Offline-first
+* Progressive Web Apps
+
+----
+
+Idea → Production ?
+===================
+
+.. image:: images/appdev-before.png
+
+----
+
+Relax app developers!
+
+* Speed-up prototyping
+* Bypass backend devs/ops
+
+.. image:: images/appdev-after.png
+
+Featured on Hackernews as *«Self-hostable alternative to Parse and Firebase»*
+
+----
+
+Universal means reusable!
+=========================
+
+.. image:: images/overview-use-cases.png
+    :align: right
+
+* Capitalize
+* Secure once
+* Deploy once
+* Scale once
 
 ----
 
@@ -46,19 +94,37 @@ How ?
 
 ----
 
-Core
-====
+HTTP API
+========
 
-* Hierarchy of REST resources (buckets > collections > records)
+* Hierarchy of REST resources |br| *(buckets > collections > records)*
 * Fined-grained permission tree
-* Filtering + Sorting + Paginating
-* Monitoring
-* HTTP API best practices
+
+.. image:: images/concepts-general.png
 
 ----
 
+HTTP API
+========
+
+* Arbitrary JSON records
+* Polling for changes
+* Filtering + Sorting + Paginating
+* Cache and concurrency control
+* Optional JSON schema validation
+* *Versioning*
+* *Deprecation*
+* *...*
+
+----
+
+Core
+====
+
+* Everything pluggable from settings |br| *(auth, backends, ...)*
 * Plain INI files + ENV vars
-* Pluggable authentication methods
+* Built-in monitoring
+* HTTP API best practices
 
 ----
 
@@ -67,9 +133,9 @@ Plugins
 
 Examples of available addons:
 
+* Push notifications
 * File attachments
 * History of changes
-* Push notifications
 * Digital signatures (crypto)
 * LDAP authentication
 * ...
@@ -79,44 +145,102 @@ Examples of available addons:
 Records storage
 ===============
 
-PostgreSQL backend (*recommended*):
+PostgreSQL backend *(recommended)*:
 
-* Raw SQL queries (single table with JSONB)
-* SQLAlchemy (engine, pools, transactions, ...)
+* SQLAlchemy *(engine, pools, transactions, ...)*
+* Single table with JSONB *(raw SQL queries)*
 * Per-request transactions
-* Minimalist schema migrations
+* Minimalist DB schema migrations logic
+* Flat and easy to shard
 
 ----
 
 Permissions
 ===========
 
-* Pluggable (multi)-authentication « policies »
-* Permission backend (ACLs)
-* Intersection of «principals» (~roles)
+* Pluggable (multi)-authentication «policies»
+* Permission backend *(ACLs)*
+* Intersection of «principals» *(~roles)*
+
+.. image:: images/concepts-permissions.png
 
 ----
 
-Cache
-=====
+Other pluggable backends
+========================
 
-* Redis (*recommended*)
-* Key/value with «Time-To-Live»
-* Used by authentication, plugins, ...
+* Key/value cache with «Time-To-Live» |br| *(Memory, Redis, ...)*
+* File storage |br| *(filesystem, Amazon S3, ...)*
+* StatsD monitoring
+* Async events/tasks |br| *(Redis queue)*
+
+----
+
+Open source
+===========
+
+* 40+ contributors
+* 2800+ stargazers
+* Monthly community meetings
+* Docker image
+* 100% code coverage
 
 ----
 
 Clients
 =======
 
-* Python (abstraction on top of requests)
-* JavaScript (ES6)
-* Web Admin UI (React/Redux)
+* Python (abstraction on top of ``requests``)
+
+.. code-block:: python
+
+    from kinto_client import Client
+
+    client = Client(server="https://kinto.dev.mozaws.net/v1")
+    client.get_records(bucket="blog", collection="articles")
+
+* JavaScript (Promises + ES6)
 * Offline-first (IndexedDB)
+* Web Admin UI (React/Redux+Sagas)
 
 ----
 
-< Screenshot >
+kinto-admin Web UI
+
+.. image:: images/kinto-admin.png
+
+----
+
+At Mozilla
+==========
+
+* Certificates Revocation List *(Firefox Nightly)*
+* Android extra assets files |br| *(fonts, hyphenation dictionaries, ...)*
+* A/B testing *(experiments)*
+* ...
+
+Coming soon:
+
+* Web Extensions ``storage.sync()`` API
+
+----
+
+Community apps...
+
+.. image:: images/app-examples-1.png
+
+----
+
+.. image:: images/app-examples-2.png
+
+http://fourmilieres.net → Forms service!
+
+----
+
+.. image:: images/app-examples-3.png
+
+
+Idea by Xavier Orduña ~ PyBCN Nov 2015
 
 ----
 
@@ -137,18 +261,7 @@ Key properties
 
 ----
 
-Minimalist ``app.wsgi`` file:
-
-.. code-block:: python
-
-    from myapp import main
-
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-
-    application = main(**dict(config.items('app:main')))
-
-----
+The ``main`` entry point:
 
 .. code-block:: python
 
@@ -160,6 +273,17 @@ Minimalist ``app.wsgi`` file:
         # Initialization steps using `config`.
 
         return config.make_wsgi_app()
+
+With a minimalist ``app.wsgi`` file:
+
+.. code-block:: python
+
+    from myapp import main
+
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+
+    application = main(**dict(config.items('app:main')))
 
 ----
 
@@ -188,18 +312,29 @@ Declarative with decorators:
 
 ----
 
-Configuration methods
-=====================
+Configuration is the project «backbone»
 
-«Backbone» of the project
+.. code-block:: python
 
-* ``config.add_route()`` / ``config.add_view()``
-* ``config.set_authentication_policy()`` / set_authorization_policy()``
-* ``config.add_subscriber()``
-* ``config.add_directive()``
-* ``config.add_renderer()``
-* ``config.add_response_adapter()``
-* ...
+    # Map URLs to views
+    config.add_route()
+    config.add_view()
+
+    # Setup authn/authz
+    config.set_authentication_policy()
+    config.set_authorization_policy()
+
+    # Add event subscriber
+    config.add_subscriber()
+
+    # Add custom config method
+    config.add_directive()
+
+    # Add custom response renderers
+    config.add_renderer()
+    config.add_response_adapter()
+
+    # ...and more!
 
 ----
 
@@ -222,50 +357,27 @@ Can be used to modularize any application part like views or event subscribers.
 
 ----
 
-An addon is just a single Python module with ``def includeme(config)``:
+An addon is just a single Python module with a flat ``def includeme(config)``:
 
 .. code-block:: python
 
     def includeme(config):
         # Add custom view renderer.
-        config.add_renderer(name='geojson', factory='webmaps.GeoJSONRenderer')
+        config.add_renderer(name='geojson',
+                            factory='webmaps.GeoJSONRenderer')
+
+* No magic *(e.g. import side-effect)*
+* Plugin system out-of-the-box
+* https://github.com/uralbash/awesome-pyramid
 
 ----
 
-Hook everything
-===============
+Application settings
+====================
 
-* Powerful route/views mapping
-* Events, callbacks, tweens, adapters, renderers, ...
 * Plain INI settings files
-* Custom configuration «directives»
-
-----
-
-.. code-block:: python
-
-    def add_api_capability(config, identifier, description="", **kwargs):
-        capability = dict(description=description, **kwargs)
-        config.registry.api_capabilities[identifier] = capability
-
-    config.add_directive('add_api_capability', add_api_capability)
-
-New directive becomes available:
-
-.. code-block:: python
-
-    config.add_api_capability('history', description="History plugin")
-
-----
-
-.. code-block:: python
-
-    @hello.get()
-    def get_hello(request):
-        data = {
-            'capabilities': request.registry.api_capabilities
-        }
-        return data
+* No sorcery at execution time |br| *(c.f. settings.py, conf.py)*
+* OPS friendly
 
 ----
 
@@ -294,18 +406,59 @@ Declare interfaces and register components:
     from pyramid.interfaces import IRoutesMapper
 
     mapper = DummyRoutesMapper()
-    request.registry.registerUtility(mapper, IRoutesMapper)
-
-----
+    config.registry.registerUtility(mapper, IRoutesMapper)
 
 Other parts of the code can query the registry:
 
 .. code-block:: python
 
-    from pyramid.interfaces import IRoutesMapper
-
-    route_mapper = registry.queryUtility(IRoutesMapper)
+    route_mapper = request.registry.queryUtility(IRoutesMapper)
     info = route_mapper(request)
+
+----
+
+Hook everything
+===============
+
+Application initialization:
+
+* Powerful route/views mapping *(predicates)*
+* Events, callbacks, tweens, adapters, renderers, ...
+* Custom configuration «directives»
+
+----
+
+Example of domain specific abstraction:
+
+.. code-block:: python
+
+    def add_api_capability(config, identifier, description="", **kwargs):
+        capability = dict(description=description, **kwargs)
+        # The application registry is a singleton
+        config.registry.api_capabilities[identifier] = capability
+
+    config.add_directive('add_api_capability', add_api_capability)
+
+New initialization directive becomes available:
+
+.. code-block:: python
+
+    config.add_api_capability('history', description="History plugin")
+
+----
+
+This view exposes what plugins have registered using the previous method:
+
+.. code-block:: python
+
+    @view_config(route_name='hello')
+    def get_hello(request):
+        data = {
+            'capabilities': request.registry.api_capabilities
+        }
+        return data
+
+Craft your own special-purpose, domain-specific Web system → *«framework framework»*
 
 ----
 
@@ -315,44 +468,99 @@ Events / Subscribers
 .. code-block:: python
 
     class ServerFlushed(object):
-        def __init__(self, request):
+        def __init__(self, request, timestamp):
             self.request = request
+            self.timestamp = timestamp
 
+Trigger event from view:
+
+.. code-block:: python
+
+    from .events import ServerFlushed
 
     def view_flush_post(request):
         request.registry.storage.flush()
 
-        event = ServerFlushed(request)
+        event = ServerFlushed(request, timestamp=datetime.now())
         request.registry.notify(event)
 
+        return {"status": "ok"}
+
 -----
+
+Subscribe to event during initialization:
 
 .. code-block:: python
 
     def on_server_flush(event):
         request = event.request
+        # Add header to response
         request.response.headers['Alert'] = 'Flush'
 
     config.add_subscriber(on_server_flush, ServerFlushed)
 
+* Alter responses
+* Raise HTTP exceptions *(eg. quotas, etc.)*
+
+Executed **synchronously** → use job queue for long tasks
+
 -----
 
-Compose instead of inherit
-==========================
-
-* Readability
-* Flexibility
-* Leverage composition between uncoupled packages
-* Avoid multiple inheritance (eg. mixins)
-* Single responsability principle
+Testing
+=======
 
 .. code-block:: python
 
-    class Backend:
+    from myapp import main
+
+    class PluginSetupTest(unittest.TestCase):
+        settings = {
+            'pyramid.includes': 'extra_plugin'
+        }
+
+        def __init__(self, *args, **kwargs):
+            super(WebTest, self).__init__(*args, **kwargs)
+            wsgi_app = testapp(self.settings)
+            self.app = webtest.TestApp(wsgi_app)
+            self.headers = {"Content-Type": "application/json"}
+
+        def test_capability_is_shown_in_hello_view(self):
+            resp = self.app.get("/hello", headers=self.headers)
+            assert "extra_plugin" in resp.json["capabilities"]
+
+-----
+
+Compose vs. inherit
+===================
+
+.. code-block:: python
+
+    class MyAuthz(Authorization):
+        def permits(self):
+            permits = super(MyAuthz, self).permits()
+            return permits and custom_check()
+
+With inheritance, substitution occurs before instantiation.
+
+With composition, we can do:
+
+.. code-block:: python
+
+    class Authorization:
         def permits(self):
             return self.context.is_allowed()
 
-    backend.context = MyContext()
+    authz.context = MyContext()
+
+----
+
+Prefer composition because:
+
+* Readability
+* Flexibility
+* Single responsability principle
+* Composition of uncoupled packages
+* Avoid multiple inheritance *(eg. mixins)*
 
 -----
 
@@ -360,15 +568,19 @@ Downsides
 =========
 
 * Pyramid is not the «latest cool stuff»
-* Documentation lacks «real-life examples» (e.g. ACL)
+* Projects not always active *(but just works)*
+* Documentation lacks «real-life examples» *(e.g. ACL)*
 * Easy to couple everything to ``request``
 * Built-in authentication policies are not intuitive
-* Request objects are not easily clonable
 
 -----
 
-Conclusion
-==========
+Gràcies!
+========
+
+* https://trypyramid.com
+* https://kinto.readthedocs.io |br| *(IRC, Slack, mailing-list...)*
+* ``@leplatrem`` *(twitter, github, ...)*
 
 -----
 
