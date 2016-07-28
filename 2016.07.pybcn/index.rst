@@ -582,7 +582,7 @@ Downsides
 
 * Pyramid is not the «latest cool stuff»
 * Projects not always active *(but just works)*
-* Documentation lacks «real-life examples» *(e.g. ACL)*
+* Documentation lacks «real-life examples» |br| *(e.g. ACL)*
 * Easy to couple everything to ``request``
 * Built-in authentication policies are not intuitive
 
