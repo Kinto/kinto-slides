@@ -334,9 +334,6 @@ Configuration is the project «backbone»
     # Add event subscriber
     config.add_subscriber()
 
-    # Add custom config method
-    config.add_directive()
-
     # Add custom response renderers
     config.add_renderer()
     config.add_response_adapter()
