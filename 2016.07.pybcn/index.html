@@ -2711,9 +2711,6 @@ images/kinto-logo.svg</object>
 <span class="c1"># Add event subscriber</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_subscriber</span><span class="p">()</span>
 
-<span class="c1"># Add custom config method</span>
-<span class="n">config</span><span class="o">.</span><span class="n">add_directive</span><span class="p">()</span>
-
 <span class="c1"># Add custom response renderers</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_renderer</span><span class="p">()</span>
 <span class="n">config</span><span class="o">.</span><span class="n">add_response_adapter</span><span class="p">()</span>
@@ -2858,7 +2855,7 @@ images/kinto-logo.svg</object>
             
             
             <section><pre><span></span><span class="c1"># config.ini</span>
-<span class="n">cache_backend</span> <span class="o">=</span> <span class="n">mypackage</span><span class="o">.</span><span class="n">cache</span>
+<span class="na">cache_backend</span> <span class="o">=</span> <span class="s">mypackage.cache</span>
 </pre>
 <p>Easily load modules from settings files:</p>
 <pre><span></span><span class="c1"># main.py</span>
@@ -2866,7 +2863,7 @@ images/kinto-logo.svg</object>
 <span class="n">cache_mod_name</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;cache_backend&#39;</span><span class="p">]</span>
 
 <span class="n">cache_module</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">maybe_dotted</span><span class="p">(</span><span class="n">cache_mod_name</span><span class="p">)</span>
-<span class="n">backend</span> <span class="o">=</span> <span class="n">cache_module</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">cache_module</span><span class="o">.</span><span class="n">Cache</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
 </pre></section>
             
           </div>
@@ -2940,6 +2937,7 @@ images/kinto-logo.svg</object>
 <ul class="simple">
 <li>Powerful route/views mapping <em>(predicates)</em></li>
 <li>Events, callbacks, tweens, adapters, renderers, ...</li>
+<li>Pyramid internals via interfaces</li>
 <li>Custom configuration «directives»</li>
 </ul></section>
             
@@ -2968,10 +2966,12 @@ images/kinto-logo.svg</object>
         <div class="slide">
           <div class="inner">
             
+            <header><h1>Custom abstractions</h1></header>
             
-            <section><p>Example of domain specific abstraction:</p>
-<pre><span></span><span class="k">def</span> <span class="nf">add_api_capability</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">capability</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            
+            <section><p>Example of domain specific initialization method:</p>
+<pre><span></span><span class="k">def</span> <span class="nf">add_api_capability</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">capability</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>
     <span class="c1"># The application registry is a singleton</span>
     <span class="n">config</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">api_capabilities</span><span class="p">[</span><span class="n">identifier</span><span class="p">]</span> <span class="o">=</span> <span class="n">capability</span>
 
@@ -3557,7 +3557,7 @@ images/kinto-logo.svg</object>
       
       
       <tr id="toc-row-36">
-        <th><a href="#slide36">-</a></th>
+        <th><a href="#slide36">Custom abstractions</a></th>
         <td><a href="#slide36">36</a></td>
       </tr>
       

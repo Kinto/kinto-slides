@@ -388,7 +388,7 @@ Application settings
 Python modules from settings
 ============================
 
-.. code-block:: python
+.. code-block:: ini
 
     # config.ini
     cache_backend = mypackage.cache
@@ -402,7 +402,7 @@ Easily load modules from settings files:
     cache_mod_name = settings['cache_backend']
 
     cache_module = config.maybe_dotted(cache_mod_name)
-    backend = cache_module(settings)
+    backend = cache_module.Cache(settings=settings)
 
 ----
 
@@ -434,16 +434,20 @@ Application initialization:
 
 * Powerful route/views mapping *(predicates)*
 * Events, callbacks, tweens, adapters, renderers, ...
+* Pyramid internals via interfaces
 * Custom configuration «directives»
 
 ----
 
-Example of domain specific abstraction:
+Custom abstractions
+===================
+
+Example of domain specific initialization method:
 
 .. code-block:: python
 
-    def add_api_capability(config, identifier, description="", **kwargs):
-        capability = dict(description=description, **kwargs)
+    def add_api_capability(config, identifier, description=""):
+        capability = dict(description=description)
         # The application registry is a singleton
         config.registry.api_capabilities[identifier] = capability
 
@@ -457,7 +461,7 @@ New initialization directive becomes available:
 
 ----
 
-This view exposes what plugins have registered using the previous method:
+This view exposes what plugins have registered via our custom method:
 
 .. code-block:: python
 
