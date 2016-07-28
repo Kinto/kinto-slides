@@ -435,44 +435,6 @@ Application initialization:
 * Powerful route/views mapping *(predicates)*
 * Events, callbacks, tweens, adapters, renderers, ...
 * Pyramid internals via interfaces
-* Custom configuration «directives»
-
-----
-
-Custom abstractions
-===================
-
-Example of domain specific initialization method:
-
-.. code-block:: python
-
-    def add_api_capability(config, identifier, description=""):
-        capability = dict(description=description)
-        # The application registry is a singleton
-        config.registry.api_capabilities[identifier] = capability
-
-    config.add_directive('add_api_capability', add_api_capability)
-
-New initialization directive becomes available:
-
-.. code-block:: python
-
-    config.add_api_capability('history', description="History plugin")
-
-----
-
-This view exposes what plugins have registered via our custom method:
-
-.. code-block:: python
-
-    @view_config(route_name='hello')
-    def get_hello(request):
-        data = {
-            'capabilities': request.registry.api_capabilities
-        }
-        return data
-
-Craft your own special-purpose, domain-specific Web system → *«framework framework»*
 
 ----
 
@@ -517,6 +479,43 @@ Subscribe to event during initialization:
 * Raise HTTP exceptions *(eg. quotas, etc.)*
 
 Executed **synchronously** → use job queue for long tasks
+
+----
+
+Custom abstractions
+===================
+
+Example of domain specific initialization method:
+
+.. code-block:: python
+
+    def add_api_capability(config, identifier, description=""):
+        capability = dict(description=description)
+        # The application registry is a singleton
+        config.registry.api_capabilities[identifier] = capability
+
+    config.add_directive('add_api_capability', add_api_capability)
+
+New initialization directive becomes available:
+
+.. code-block:: python
+
+    config.add_api_capability('history', description="History plugin")
+
+----
+
+This view exposes what plugins have registered via our custom method:
+
+.. code-block:: python
+
+    @view_config(route_name='hello')
+    def get_hello(request):
+        data = {
+            'capabilities': request.registry.api_capabilities
+        }
+        return data
+
+Craft your own special-purpose, domain-specific Web system → *«framework framework»*
 
 -----
 
