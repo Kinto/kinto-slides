@@ -1717,7 +1717,7 @@ ul.simple {
   <div class="presentation highlight">
     <div id="time">
       <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-    </div>
+    </div>            
     <div id="current_presenter_notes">
       <div id="presenter_note"></div>
     </div>
@@ -2829,8 +2829,12 @@ images/kinto-logo.svg</object>
             <header><h1>Python modules from settings</h1></header>
             
             
-            <section><p>Easily load modules from settings files:</p>
-<pre><span></span><span class="n">settings</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_settings</span><span class="p">()</span>
+            <section><pre><span></span><span class="c1"># config.ini</span>
+<span class="n">cache_backend</span> <span class="o">=</span> <span class="n">mypackage</span><span class="o">.</span><span class="n">cache</span>
+</pre>
+<p>Easily load modules from settings files:</p>
+<pre><span></span><span class="c1"># main.py</span>
+<span class="n">settings</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_settings</span><span class="p">()</span>
 <span class="n">cache_mod_name</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;cache_backend&#39;</span><span class="p">]</span>
 
 <span class="n">cache_module</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">maybe_dotted</span><span class="p">(</span><span class="n">cache_mod_name</span><span class="p">)</span>
@@ -3307,7 +3311,7 @@ images/kinto-logo.svg</object>
       
     </div>
   </div>
-
+  
   
   <div id="toc" class="sidebar hidden">
     <h2>Table of Contents</h2>

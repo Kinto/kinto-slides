@@ -384,10 +384,16 @@ Application settings
 Python modules from settings
 ============================
 
+.. code-block:: python
+
+    # config.ini
+    cache_backend = mypackage.cache
+
 Easily load modules from settings files:
 
 .. code-block:: python
 
+    # main.py
     settings = config.get_settings()
     cache_mod_name = settings['cache_backend']
 
