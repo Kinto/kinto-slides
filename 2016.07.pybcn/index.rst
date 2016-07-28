@@ -24,6 +24,12 @@ Highlights
 Why ?
 =====
 
+----
+
+Storage API
+===========
+
+* Minimalist & simple API
 * Universal « Web database »
 * Synchronize between devices
 * Shareable remote storage
