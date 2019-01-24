@@ -2,3 +2,7 @@
 	path = 2016.07.pybcn/avalanche
 	url = https://github.com/leplatrem/avalanche.git
         branch = fix-pygments-highlight
+[submodule "2016.11.betahaus/avalanche"]
+	path = 2016.11.betahaus/avalanche
+	url = https://github.com/leplatrem/avalanche.git
+        branch = fix-pygments-highlight
